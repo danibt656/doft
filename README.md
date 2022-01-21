@@ -26,8 +26,8 @@ To-do's:
 > To install it, simply download the repo and run the `make install` command
 
 ```
-git clone https://github.com/danibt656/libjson
-cd libjson
+git clone https://github.com/danibt656/doft
+cd doft
 make install
 ```
 
