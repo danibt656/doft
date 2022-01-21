@@ -13,17 +13,17 @@
 
 To-do's:
 
-+ Change name of the whole thing from 'json' to 'doft'
+- [X] Change name of the whole thing from 'json' to 'doft'
 
-+ Check that files have the correct extension type (.doft)
+- [ ] Check that files have the correct extension type (.doft)
 
-+ Add support for boolean data types
+- [ ] Add support for boolean data types
 
-+ Change the whole brace-bracket syntax
+- [ ] Change the whole brace-bracket syntax
 
-+ Refactor management of iterators
+- [ ] Refactor management of iterators
 
-+ Refactor management of Key-Value lists
+- [ ] Refactor management of Key-Value lists
 
 ### Install & Use
 
