@@ -14,7 +14,6 @@ $(exec): $(objects)
 install:
 	echo 'Installing dependencies, this may take a while'
 	make
-#	cp ./$(exec) /usr/local/bin/$(exec)
 
 # Remove object and binary files
 clean:
