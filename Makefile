@@ -1,4 +1,4 @@
-exec = libjson.out
+exec = libjson
 sources = $(wildcard src/*.c)
 objects = $(sources:.c=.o)
 flags = -g -fPIC
@@ -14,12 +14,16 @@ $(exec): $(objects)
 install:
 	echo 'Installing dependencies, this may take a while'
 	make
-#	cp ./libjson.out /usr/local/bin/libjson
+#	cp ./$(exec) /usr/local/bin/$(exec)
 
 # Remove object and binary files
 clean:
 	echo 'Cleaning up object files, please wait'
-	-rm *.out
+	-rm $(exec)
 	-rm src/*.o
 	-rm *.o
 	-rm a.*
+
+reset:
+	make clean
+	make install

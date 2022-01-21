@@ -1,5 +1,6 @@
 {
     "age": 32,
     "name": "John Doe",
-    "email": "doe@doecompany.com"    
+    "email": "doe@doecompany.com",
+    "married": false
 }

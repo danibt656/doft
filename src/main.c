@@ -38,18 +38,22 @@ int main(int argc, char *argv[]) {
     }
 
     parser_t *parser = new_parser(new_lexer(read_file(argv[1])));
-
+    
     ast_t *ast = parser_parse(parser);
     
     json_iterator iterator = iterate(ast);
-    visitor_visit(ast);
     
     while (iterator.current) {
         char* str = json_string(iterator.current);
-        printf("%s\n", str);
+        printf(":> %s\n", str);
         json_iterator_next(&iterator);
     }
-
+    
+    printf("\n");
+    visitor_visit(ast);
+    printf("\n\n");
+    
     parser_free(parser);
+    printf("Freed ast\n");
     ast_free(ast);
 }

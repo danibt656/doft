@@ -15,7 +15,9 @@ token_t *new_token(int type, char *value)
 
 void token_free(token_t *token)
 {
-    if (token->value)
-        free(token->value);
-    free(token);
+    if (token) {
+        if (token->value)
+            free(token->value);
+        free(token);
+    }
 }

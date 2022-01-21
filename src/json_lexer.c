@@ -19,7 +19,7 @@ void lexer_free(lexer_t *lexer)
 {
     if (lexer->contents)
         free(lexer->contents);
-    free(lexer->contents);
+    free(lexer);
 }
 
 token_t *lexer_get_next_token(lexer_t *lexer)
