@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "include/json_ast.h"
-#include "include/json_parser.h"
+#include "include/doft_ast.h"
+#include "include/doft_parser.h"
 
 #define CURR_TOKEN() parser->curr_token
 
@@ -34,7 +34,7 @@ void parser_eat(parser_t *parser, int type)
     parser_stack(parser, parser->curr_token);
 
     if (parser->curr_token->type != type) {
-        printf("[json_parser] Unexpected token of type (%d, %s)\n",
+        printf("[doft_parser] Unexpected token of type (%d, %s)\n",
                 parser->curr_token->type, parser->curr_token->value);
         printf("Was expecting %d.\n(lexer->i == %d)\n", type, parser->lexer->i);
         exit(1);
@@ -47,10 +47,10 @@ void parser_stack(parser_t *parser, token_t *token)
     parser->stack_size += 1;
 
     if (parser->stack == (void *)0)
-        parser->stack = malloc(sizeof(struct JSON_JSON_AST_STRUCT *));
+        parser->stack = malloc(sizeof(struct DOFT_DOFT_AST_STRUCT *));
     else
         parser->stack = realloc(parser->stack, parser->stack_size *
-                                               sizeof(struct JSON_JSON_AST_STRUCT *));
+                                               sizeof(struct DOFT_DOFT_AST_STRUCT *));
 
     parser->stack[parser->stack_size - 1] = token;
 }
@@ -72,7 +72,7 @@ ast_t *parser_parse(parser_t *parser)
             default : break;
         }
 
-        printf("[json_parser] Unexpected TOKEN(%d, %s)\n", CURR_TOKEN()->type, CURR_TOKEN()->value);
+        printf("[doft_parser] Unexpected TOKEN(%d, %s)\n", CURR_TOKEN()->type, CURR_TOKEN()->value);
         
         return (void*)0;
     }

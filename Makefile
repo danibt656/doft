@@ -1,4 +1,4 @@
-exec = libjson
+exec = libdoft
 sources = $(wildcard src/*.c)
 objects = $(sources:.c=.o)
 flags = -g -fPIC

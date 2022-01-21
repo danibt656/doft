@@ -1,10 +1,10 @@
-#ifndef JSON_PARSER_H
-#define JSON_PARSER_H
+#ifndef DOFT_PARSER_H
+#define DOFT_PARSER_H
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "json_ast.h"
-#include "json_lexer.h"
+#include "doft_ast.h"
+#include "doft_lexer.h"
 
 typedef struct PARSER_STRUCT {
     lexer_t *lexer;

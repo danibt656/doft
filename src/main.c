@@ -3,7 +3,7 @@
 #include <string.h>
 #include <sys/types.h>
 
-#include "include/json.h"
+#include "include/doft.h"
 
 char *read_file(const char *filename) {
     FILE *fp = fopen(filename, "r");
@@ -41,12 +41,12 @@ int main(int argc, char *argv[]) {
     
     ast_t *ast = parser_parse(parser);
     
-    json_iterator iterator = iterate(ast);
+    doft_iterator iterator = iterate(ast);
     
     while (iterator.current) {
-        char* str = json_string(iterator.current);
+        char* str = doft_string(iterator.current);
         printf(":> %s\n", str);
-        json_iterator_next(&iterator);
+        doft_iterator_next(&iterator);
     }
     
     printf("\n");

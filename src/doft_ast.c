@@ -1,4 +1,4 @@
-#include "include/json_ast.h"
+#include "include/doft_ast.h"
 
 
 ast_t *new_ast(int type)

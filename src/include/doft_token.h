@@ -1,5 +1,5 @@
-#ifndef JSON_TOKEN_H
-#define JSON_TOKEN_H
+#ifndef DOFT_TOKEN_H
+#define DOFT_TOKEN_H
 
 typedef enum TOKEN_T {
     TOKEN_STRING,

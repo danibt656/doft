@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "include/json_visitor.h"
+#include "include/doft_visitor.h"
 
 
 ast_t *visitor_visit(ast_t *ast)
@@ -14,7 +14,7 @@ ast_t *visitor_visit(ast_t *ast)
         case AST_STRING: return visitor_visit_string(ast); break;
     }
 
-    printf("[json_visitor] Unhandled json_ast->type %d\n", ast->type);
+    printf("[doft_visitor] Unhandled doft_ast->type %d\n", ast->type);
     exit(1);
 
     return ast;

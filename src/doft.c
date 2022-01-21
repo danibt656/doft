@@ -1,17 +1,17 @@
 #include <string.h>
 
-#include "include/json.h"
+#include "include/doft.h"
 #include "include/macros.h"
 
-json *json_get_value(json *data, const char *key)
+doft *doft_get_value(doft *data, const char *key)
 {
     if (!data->map) return 0;
 
-    json *value = (json*)map_get_value(data->map, (char*)key);
+    doft *value = (doft*)map_get_value(data->map, (char*)key);
 
     if (!value) {
         for (uint32_t i = 0; i < data->key_value_list_size; i++) {
-            json *v = data->key_value_list_value[i];
+            doft *v = data->key_value_list_value[i];
             if (!v) continue;
             if (!v->key_value_key) continue;
             if (strcmp(v->key_value_key, key) == 0) return v;
@@ -21,39 +21,39 @@ json *json_get_value(json *data, const char *key)
     return value;
 }
 
-char* json_get_string(json* data, const char* key)
+char* doft_get_string(doft* data, const char* key)
 {
-    json *value = json_get_value(data, key);
+    doft *value = doft_get_value(data, key);
     if (!value) return 0;
     return value->string_value;
 }
 
-int json_get_int(json* data, const char* key)
+int doft_get_int(doft* data, const char* key)
 {
-    json *value = json_get_value(data, key);
+    doft *value = doft_get_value(data, key);
     if (!value) return 0;
     return value->int_value;
 }
 
-float json_get_float(json* data, const char* key)
+float doft_get_float(doft* data, const char* key)
 {
-    json *value = json_get_value(data, key);
+    doft *value = doft_get_value(data, key);
     if (!value) return 0;
     return value->float_value;  
 }
 
-float json_get_number(json* data, const char* key)
+float doft_get_number(doft* data, const char* key)
 {
-    json *value = json_get_value(data, key);
+    doft *value = doft_get_value(data, key);
     if (!value) return 0;
     return OR(value->float_value, value->int_value);
 }
 
 
-json_iterator iterate(json *data)
+doft_iterator iterate(doft *data)
 {
-    if (!json_is_list(data)) return (json_iterator){0, 0, 0};
-    json_iterator iterator = {};
+    if (!doft_is_list(data)) return (doft_iterator){0, 0, 0};
+    doft_iterator iterator = {};
     iterator.values = data->list_value;
     iterator.length = data->list_size;
     iterator.index = 0;
@@ -61,9 +61,9 @@ json_iterator iterate(json *data)
     return iterator;
 }
 
-json *json_iterator_next(json_iterator *iterator)
+doft *doft_iterator_next(doft_iterator *iterator)
 {
-    json *current = iterator->current;
+    doft *current = iterator->current;
     if (iterator->index < iterator->length) {
         iterator->index++;
         iterator->current = iterator->values[iterator->index];
@@ -74,30 +74,30 @@ json *json_iterator_next(json_iterator *iterator)
     return current;
 }
 
-unsigned int json_is_list(json *data)
+unsigned int doft_is_list(doft *data)
 {
     return data->type == AST_LIST;
 }
 
-char *json_string(json *data)
+char *doft_string(doft *data)
 {
     if (!data) return 0;
     return OR(data->string_value, data->key_value_key);
 }
 
-int json_int(json *data)
+int doft_int(doft *data)
 {
     if (!data) return 0;
     return data->int_value;
 }
 
-float json_float(json *data)
+float doft_float(doft *data)
 {
     if (!data) return 0;
     return data->int_value;
 }
 
-float json_number(json *data)
+float doft_number(doft *data)
 {
     if (!data) return 0;
     return OR(data->float_value, data->int_value);

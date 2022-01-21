@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "include/json_lexer.h"
+#include "include/doft_lexer.h"
 
 
 lexer_t *new_lexer(char *contents)
@@ -51,7 +51,7 @@ token_t *lexer_get_next_token(lexer_t *lexer)
 
         if (lexer->c == 0)
             break;
-        printf("[json_lexer] Unexpected `%c`\n", lexer->c);
+        printf("[doft_lexer] Unexpected `%c`\n", lexer->c);
         exit(1);
     }
     return (void*)0;

@@ -1,5 +1,5 @@
-#ifndef JSON_AST_H
-#define JSON_AST_H
+#ifndef DOFT_AST_H
+#define DOFT_AST_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

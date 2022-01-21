@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "include/json_token.h"
+#include "include/doft_token.h"
 
 
 token_t *new_token(int type, char *value)

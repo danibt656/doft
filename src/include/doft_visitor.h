@@ -1,6 +1,6 @@
-#ifndef JSON_VISITOR_H
-#define JSON_VISITOR_H
-#include "json_ast.h"
+#ifndef DOFT_VISITOR_H
+#define DOFT_VISITOR_H
+#include "doft_ast.h"
 
 ast_t *visitor_visit(ast_t *ast);
 

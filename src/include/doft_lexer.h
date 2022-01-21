@@ -1,8 +1,8 @@
-#ifndef JSON_LEXER_H
-#define JSON_LEXER_H
+#ifndef DOFT_LEXER_H
+#define DOFT_LEXER_H
 
 #include <ctype.h>
-#include "json_token.h"
+#include "doft_token.h"
 
 typedef struct LEXER_STRUCT {
     char *contents;
