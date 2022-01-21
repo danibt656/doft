@@ -1,3 +1,7 @@
+<div style='text-align: center;' align='center'>
+    <img style='max-width: 300px;' src='logo.png'/>
+</div>
+
 # doft
 ## *Dani's Own Formatting Type*
 
