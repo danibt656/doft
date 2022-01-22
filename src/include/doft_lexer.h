@@ -10,9 +10,13 @@ typedef struct LEXER_STRUCT {
     char c;
 } lexer_t;
 
+#define DOFT_EXTENSION ".doft"
+
 lexer_t *new_lexer(char *contents);
 
 void lexer_free(lexer_t *lexer);
+
+char *lexer_read_file(const char *filename);
 
 token_t *lexer_get_next_token(lexer_t *lexer);
 

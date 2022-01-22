@@ -15,15 +15,13 @@ To-do's:
 
 - [X] Change name of the whole thing from 'json' to 'doft'
 
-- [ ] Check that files have the correct extension type (.doft)
-
-- [ ] Add support for boolean data types
+- [X] Check that files have the correct extension type (.doft)
 
 - [ ] Change the whole brace-bracket syntax
 
-- [ ] Refactor management of iterators
+- [ ] License w/ MIT
 
-- [ ] Refactor management of Key-Value lists
+- [ ] Pack it into a Python library
 
 ### Install & Use
 
@@ -39,6 +37,6 @@ There's a `main.c` file in the `src/` folder. There it lays an example on how to
 
 ### Why make your own FT?
 
-> There's no meaning behind it, more than learning more about lexing & parsing in C, then I thought it would be fun to tweak its syntax to my personal liking
+> There's no meaning behind it, more than learning more about lexing & parsing in C. Then I thought it would be fun to tweak its syntax to my personal liking
 
 *By the way, thanks for checking it out ;-)*

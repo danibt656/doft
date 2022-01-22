@@ -20,13 +20,13 @@ ast_t *new_ast(int type)
 void ast_free(ast_t *ast)
 {
     switch (ast->type) {
-        case AST_STRING : free(ast->string_value); break;
-        case AST_FLOAT : break;
-        case AST_INT : break;
+        case AST_STRING :
+            free(ast->string_value);
+            break;
         case AST_LIST : {
-            for (int i=0; i < ast->list_size; i++) {
+            for (int i=0; i < ast->list_size; i++)
                 ast_free(ast->list_value[i]);
-            }
+            
             free(ast->list_value);
         } break;
         case AST_KEY_VALUE_LIST : {
@@ -42,9 +42,12 @@ void ast_free(ast_t *ast)
                 free(ast->key_value_key);
             if (ast->key_value_value)
                 ast_free(ast->key_value_value);
-        }
-        default: break;
-    }
+        } break;
+        case AST_FLOAT:
+        case AST_INT: /* silence */
+            break;
+        default: { /* silence */ }; break;
+  }
 
     free(ast);
 }

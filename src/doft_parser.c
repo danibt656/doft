@@ -21,9 +21,11 @@ void parser_free(parser_t *parser)
 {
     if (parser->lexer)
         lexer_free(parser->lexer);
+    
     if (parser->stack != (void*)0) {
-        for (int i = 0; i < parser->stack_size; i++)
+        for (int i = 0; i < parser->stack_size; i++) {
             token_free(parser->stack[i]);
+        }
         free(parser->stack);
     }
     free(parser);
@@ -47,10 +49,10 @@ void parser_stack(parser_t *parser, token_t *token)
     parser->stack_size += 1;
 
     if (parser->stack == (void *)0)
-        parser->stack = malloc(sizeof(struct DOFT_DOFT_AST_STRUCT *));
+        parser->stack = calloc(1, sizeof(struct AST_STRUCT *));
     else
         parser->stack = realloc(parser->stack, parser->stack_size *
-                                               sizeof(struct DOFT_DOFT_AST_STRUCT *));
+                                               sizeof(struct AST_STRUCT *));
 
     parser->stack[parser->stack_size - 1] = token;
 }

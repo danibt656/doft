@@ -22,6 +22,44 @@ void lexer_free(lexer_t *lexer)
     free(lexer);
 }
 
+char *lexer_read_file(const char *filename)
+{
+    char *extension = NULL;
+    FILE *fp = fopen(filename, "r");
+
+    if (fp == NULL) {
+        printf("Could not open %s\n", filename);
+        exit(1);
+    }
+    
+    extension = strchr(filename,'.');
+    
+    if (strcmp(extension, DOFT_EXTENSION) != 0) {
+        printf("File extension [%s] not compatible, must be [%s]\n",
+               extension,
+               DOFT_EXTENSION
+              );
+        exit(1);
+    }
+    
+    char *data = calloc(1, sizeof(char));
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    while ((read = getline(&line, &len, fp)) != -1) {
+        data = realloc(data, (strlen(data) + strlen(line) + 1) * sizeof(char));
+        strcat(data, line);
+    }
+
+    fclose(fp);
+
+    if (line)
+        free(line);
+
+    return data;
+}
+
 token_t *lexer_get_next_token(lexer_t *lexer)
 {
     int len = strlen(lexer->contents);
