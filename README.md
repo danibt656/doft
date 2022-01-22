@@ -3,7 +3,7 @@
 </div>
 
 # doft
-## *Dani's Own Formatting Type*
+## *Daniel's Own Formatting Type*
 
 ***
 
